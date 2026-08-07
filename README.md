@@ -1,6 +1,6 @@
 # Mind Map Editor
 
-**v0.0.1a01 — Foundation Release**
+**v0.0.1 — Foundation Release**
 
 A fast, minimal mind-mapping tool for the browser. Grow a tree of ideas
 around a central topic with smooth panning, wheel zoom, animated auto-layout
