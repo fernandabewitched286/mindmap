@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind Map Editor — v0.0.1</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='10' cy='16' r='6' fill='%234F46E5'/%3E%3Ccircle cx='24' cy='9' r='4' fill='%23818CF8'/%3E%3Ccircle cx='24' cy='23' r='4' fill='%23C7D2FE'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ══════════════ TOOLBAR ══════════════ -->
+  <header class="toolbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M12.5 16c3.5 0 3-7 7.5-7M12.5 16c3.5 0 3 7 7.5 7" fill="none" stroke="#4F46E5" stroke-width="2.2" stroke-linecap="round"/>
+        <circle class="pulse" cx="8.5" cy="16" r="4.5" fill="#4F46E5"/>
+        <circle cx="24" cy="9" r="3.2" fill="#818CF8"/>
+        <circle cx="24" cy="23" r="3.2" fill="#C7D2FE"/>
+      </svg>
+      <div class="brand-text">
+        <strong>Mind Map Editor</strong>
+        <span class="ver">v0.0.1</span>
+      </div>
+    </div>
+
+    <div class="tool-sep"></div>
+
+    <button class="btn" id="btnNew" title="New Mind Map">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5L13.5 3z"/><path d="M13.5 3v5.5H19"/><path d="M12 12v6M9 15h6"/></svg>
+      <span class="btn-label">New Mind Map</span>
+    </button>
+
+    <div class="tool-sep"></div>
+
+    <button class="btn" id="btnAdd" title="Add Child (Enter)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 8.5v7M8.5 12h7"/></svg>
+      <span class="btn-label">Add Child</span>
+    </button>
+
+    <button class="btn danger" id="btnDelete" title="Delete Node (Del)" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M9.5 7V5a1.5 1.5 0 0 1 1.5-1.5h2A1.5 1.5 0 0 1 14.5 5v2"/><path d="M6 7l1 12.2A2 2 0 0 0 9 21h6a2 2 0 0 0 2-1.8L18 7"/><path d="M10 11v6M14 11v6"/></svg>
+      <span class="btn-label">Delete Node</span>
+    </button>
+
+    <div class="spacer"></div>
+
+    <button class="btn" id="btnSave" title="Save (Ctrl+S)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+      <span class="btn-label">Save</span>
+    </button>
+
+    <button class="btn" id="btnLoad" title="Load (Ctrl+O)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+      <span class="btn-label">Load</span>
+    </button>
+  </header>
+
+  <!-- ══════════════ CANVAS ══════════════ -->
+  <main class="canvas-area">
+    <div class="grid-layer" id="grid" aria-hidden="true"></div>
+    <div id="viewport">
+      <div id="world">
+        <svg id="edges" width="10" height="10" aria-hidden="true"></svg>
+        <div class="map-hint" id="mapHint">Press <b>Enter</b> to grow the first branch &nbsp;·&nbsp; drag to pan &nbsp;·&nbsp; scroll to zoom</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ══════════════ STATUS BAR ══════════════ -->
+  <footer class="statusbar">
+    <div class="status-left">
+      <span class="stat" title="Total nodes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>
+        <span id="statNodes">1 node</span>
+      </span>
+      <span class="stat-sep"></span>
+      <span class="stat selection" id="statSelection" title="Selected node">JavaScript</span>
+      <span class="stat-sep"></span>
+      <span class="save-state none" id="saveState"><span class="dot"></span><span id="saveText">Not saved yet</span></span>
+    </div>
+    <div class="status-right">
+      <div class="zoomer">
+        <button id="zoomOut" title="Zoom out" aria-label="Zoom out">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>
+        </button>
+        <button id="zoomLevel" title="Reset to 100%">100%</button>
+        <button id="zoomIn" title="Zoom in" aria-label="Zoom in">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <button id="zoomFit" title="Fit map to view" aria-label="Fit map to view">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3.5H5.5a2 2 0 0 0-2 2V8M16 3.5h2.5a2 2 0 0 1 2 2V8M16 20.5h2.5a2 2 0 0 0 2-2V16M8 20.5H5.5a2 2 0 0 1-2-2V16"/></svg>
+        </button>
+      </div>
+      <button class="ghost-btn" id="shortcutsBtn" title="Keyboard shortcuts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.75" y="6.5" width="18.5" height="11" rx="2"/><path d="M6.5 10h.01M10.2 10h.01M13.8 10h.01M17.5 10h.01M6.5 13.8h.01M17.5 13.8h.01M9.5 13.8h5"/></svg>
+        <span>Shortcuts</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- ══════════════ SHORTCUTS PANEL ══════════════ -->
+  <aside class="shortcuts" id="shortcutsPanel" aria-label="Keyboard shortcuts">
+    <div class="sc-title">Keyboard shortcuts</div>
+    <div class="sc-row"><span>Add child node</span><kbd>Enter</kbd></div>
+    <div class="sc-row"><span>Delete selected node</span><kbd>Del</kbd></div>
+    <div class="sc-row"><span>Rename selected node</span><kbd>F2</kbd></div>
+    <div class="sc-row"><span>Save mind map</span><span><kbd>Ctrl</kbd><kbd>S</kbd></span></div>
+    <div class="sc-row"><span>Load mind map</span><span><kbd>Ctrl</kbd><kbd>O</kbd></span></div>
+    <div class="sc-row"><span>Edit node text</span><span class="sc-note">Double-click</span></div>
+    <div class="sc-row"><span>Pan canvas</span><span class="sc-note">Drag background</span></div>
+    <div class="sc-row"><span>Zoom 50–200%</span><span class="sc-note">Mouse wheel</span></div>
+    <div class="sc-row"><span>Cancel edit / deselect</span><kbd>Esc</kbd></div>
+  </aside>
+
+  <!-- ══════════════ TOAST ══════════════ -->
+  <div class="toast" id="toast" role="status">
+    <span id="toastIcon"></span><span id="toastMsg"></span>
+  </div>
+
+  <!-- ══════════════ CONFIRM MODAL ══════════════ -->
+  <div class="overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h3 id="modalTitle">Start a new mind map?</h3>
+      <p id="modalMsg">Unsaved changes will be lost.</p>
+      <div class="modal-actions">
+        <button class="btn" id="modalCancel">Cancel</button>
+        <button class="btn primary" id="modalConfirm">Create new map</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/node.js"></script>
+  <script src="js/canvas.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
