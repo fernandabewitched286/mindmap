@@ -49,6 +49,7 @@ The **Shortcuts** button in the status bar shows this list in-app.
 The status bar also shows the node count, current zoom (click `%` to reset,
 corners icon to fit) and the save state.
 
+<<<<<<< HEAD
 ## 🗂 Project structure
 
 ```text
@@ -79,6 +80,8 @@ mind-map-editor/
 Releases are tracked as `v0.0.1a` alpha builds — see
 [CHANGELOG.md](CHANGELOG.md)
 
+=======
+>>>>>>> 473ce742d67f490bae65e08aa3d0e8665ae8b22c
 ## 💾 Storage format
 
 `Save` writes one JSON document to LocalStorage under the key
