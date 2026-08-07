@@ -1,0 +1,27 @@
+# ── Operating system ─────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editors / IDEs ───────────────────────────────
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# ── Logs & temp ──────────────────────────────────
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+
+# ── Environment / secrets ────────────────────────
+.env
+.env.*
+
+# ── Future tooling (if a build step is ever added)
+node_modules/
+dist/
