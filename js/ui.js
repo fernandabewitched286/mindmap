@@ -50,6 +50,13 @@
     els.overlay.addEventListener('click', function (e) {
       if (e.target === els.overlay) closeModal(false);
     });
+
+    // Release branding from the single source of truth
+    if (MM.VERSION) {
+      document.title = 'Mind Map Editor - ' + MM.VERSION;
+      var chip = document.querySelector('.ver');
+      if (chip) chip.textContent = MM.VERSION;
+    }
   }
 
   /* ── status bar ── */

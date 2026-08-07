@@ -2,6 +2,11 @@
 (function (MM) {
   'use strict';
 
+  /* Single source of truth for the release version */
+  MM.VERSION = 'v0.0.1a';
+
+  var Nodes = MM.Nodes, Canvas = MM.Canvas, UI = MM.UI, Storage = MM.Storage; 
+
   var Nodes = MM.Nodes, Canvas = MM.Canvas, UI = MM.UI, Storage = MM.Storage;
 
   var App = {

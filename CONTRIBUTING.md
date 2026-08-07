@@ -64,8 +64,9 @@ user problem, the proposed behavior, and how it fits a zero-dependency app.
 2. Match the existing code style (guarded vanilla JS, small functions,
    comments for *why*).
 3. Update `README.md` if you change UI, shortcuts or the storage format.
-4. Fill in `PULL_REQUEST_TEMPLATE.md` (GitHub picks it up from the repo root).
-5. Run the manual QA checklist below before submitting.
+4. Update `CHANGELOG.md` for any user-facing change.
+5. Fill in `PULL_REQUEST_TEMPLATE.md` (GitHub picks it up from the repo root).
+6. Run the manual QA checklist below before submitting.
 
 ### Manual QA checklist
 

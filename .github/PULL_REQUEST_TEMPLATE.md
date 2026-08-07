@@ -26,6 +26,7 @@
 - [ ] Shortcuts still work: `Enter`, `Del`, `F2`, `Ctrl+S`, `Ctrl+O`, `Esc`
 - [ ] Zoom stays clamped to 50–200%; pan & fit behave
 - [ ] No console errors or warnings
+- [ ] `CHANGELOG.md` updated for user-facing changes
 
 ## Screenshots
 

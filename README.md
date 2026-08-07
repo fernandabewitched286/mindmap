@@ -66,12 +66,18 @@ mind-map-editor/
 ├── assets/                     # Future assets (screenshots, etc.)
 │
 ├── .gitignore
+├── CHANGELOG.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── PULL_REQUEST_TEMPLATE.md
 └── README.md
 ```
+
+## 🔖 Versioning & changelog
+
+Releases are tracked as `v0.0.1a` alpha builds — see
+[CHANGELOG.md](CHANGELOG.md)
 
 ## 💾 Storage format
 
