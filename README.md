@@ -49,30 +49,6 @@ The **Shortcuts** button in the status bar shows this list in-app.
 The status bar also shows the node count, current zoom (click `%` to reset,
 corners icon to fit) and the save state.
 
-## 🗂 Project structure
-
-```text
-mind-map-editor/
-│
-├── index.html                  # App shell, toolbar, status bar, overlays
-├── css/
-│   └── style.css               # All styling (design tokens in :root)
-├── js/
-│   ├── app.js                  # Orchestration: actions, editing, shortcuts
-│   ├── canvas.js               # Viewport: pan/zoom, tree layout, SVG edges, tweens
-│   ├── node.js                 # Tree model + (de)serialization
-│   ├── storage.js              # LocalStorage persistence
-│   └── ui.js                   # Toolbar, status bar, toasts, modal, panels
-├── assets/                     # Future assets (screenshots, etc.)
-│
-├── .gitignore
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── LICENSE
-├── PULL_REQUEST_TEMPLATE.md
-└── README.md
-```
-
 ## 💾 Storage format
 
 `Save` writes one JSON document to LocalStorage under the key
